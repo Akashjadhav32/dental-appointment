@@ -229,8 +229,8 @@ def test_duplicate_slot_booking():
             "sex": "Female",
             "age": 32,
             "complaint": "Dental cleaning and checkup",
-            "time_slot": "12:00–1:00 PM",
-            "appointment_date": tomorrow.isoformat()
+            "timeSlot": "12:00–1:00 PM",
+            "appointmentDate": tomorrow.isoformat()
         }
         
         # Create first appointment
@@ -242,8 +242,8 @@ def test_duplicate_slot_booking():
             "sex": "Male",
             "age": 45,
             "complaint": "Tooth extraction consultation",
-            "time_slot": "12:00–1:00 PM",
-            "appointment_date": tomorrow.isoformat()
+            "timeSlot": "12:00–1:00 PM",
+            "appointmentDate": tomorrow.isoformat()
         }
         
         response2 = requests.post(f"{BASE_URL}/api/appointments", json=appointment_data2)
