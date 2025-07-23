@@ -202,7 +202,7 @@ const AppointmentForm = () => {
                 name="age"
                 value={formData.age}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500 ${
                   errors.age ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Enter your age"
