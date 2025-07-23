@@ -1,38 +1,134 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .App {
-    text-align: center;
+  min-height: 100vh;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }
 
-.App-link {
-    color: #61dafb;
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Form animations */
+.form-input {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Button animations */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Success/Error message animations */
+.message-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1rem;
+  }
+  
+  .form-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles for better accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
 }
