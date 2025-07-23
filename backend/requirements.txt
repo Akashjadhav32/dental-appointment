@@ -1,9 +1,0 @@
-# This file is no longer needed as we've switched to Node.js
-# Dependencies are now managed in package.json
-# 
-# To install dependencies for Node.js backend:
-# npm install
-#
-# To run the backend:
-# npm run dev (for development with nodemon)
-# npm start (for production)
