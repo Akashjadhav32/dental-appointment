@@ -133,8 +133,10 @@ async def create_appointment(appointment_data: AppointmentCreate):
         appointment_dict["appointment_date"] = appointment_data.appointment_date.isoformat()
         appointment_obj = Appointment(**appointment_dict)
         
-        # Save to database
-        await db.appointments.insert_one(appointment_obj.dict())
+        # Save to database - convert to dict and ensure date is string
+        appointment_doc = appointment_obj.dict()
+        appointment_doc["appointment_date"] = appointment_data.appointment_date.isoformat()
+        await db.appointments.insert_one(appointment_doc)
         
         return appointment_obj
         
