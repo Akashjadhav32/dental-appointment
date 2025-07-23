@@ -14,8 +14,8 @@ import urllib3
 # Disable SSL warnings for testing
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Backend URL from frontend environment
-BACKEND_URL = "https://app-gld1b44i-frontend.e1-us-east-1.choreoapps.dev/api"
+# Backend URL - using localhost for testing since external URL has routing issues
+BACKEND_URL = "http://localhost:8001/api"
 
 class BackendTester:
     def __init__(self):
