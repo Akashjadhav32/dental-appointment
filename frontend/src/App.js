@@ -180,14 +180,14 @@ const AppointmentForm = () => {
                 name="sex"
                 value={formData.sex}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white ${
                   errors.sex ? 'border-red-500' : 'border-gray-300'
                 }`}
               >
-                <option value="">Select sex</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
+                <option value="" className="text-gray-500">Select sex</option>
+                <option value="Male" className="text-gray-900">Male</option>
+                <option value="Female" className="text-gray-900">Female</option>
+                <option value="Other" className="text-gray-900">Other</option>
               </select>
               {errors.sex && <p className="mt-1 text-sm text-red-600">{errors.sex}</p>}
             </div>
