@@ -200,8 +200,8 @@ def test_past_date_appointment():
             "sex": "Male",
             "age": 40,
             "complaint": "Routine dental examination",
-            "time_slot": "11:00–12:00 PM",
-            "appointment_date": yesterday.isoformat()
+            "timeSlot": "11:00–12:00 PM",
+            "appointmentDate": yesterday.isoformat()
         }
         
         response = requests.post(f"{BASE_URL}/api/appointments", json=appointment_data)
