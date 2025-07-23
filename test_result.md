@@ -105,80 +105,65 @@
 user_problem_statement: "Create a full-stack appointment booking system for a dental clinic with React frontend, FastAPI backend, and MongoDB database. Include form validation, Saturday/Sunday restrictions, and OPD consultation note."
 
 backend:
-  - task: "Appointment data model with validation"
+  - task: "Node.js backend migration with MongoDB connection"
     implemented: true
-    working: true
-    file: "/app/backend/server.py"
+    working: "needs_testing"
+    file: "/app/backend/server.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "Created Appointment and AppointmentCreate models with Pydantic validation for name, age, complaint fields. Added Sex and TimeSlot enums."
-      - working: true
-        agent: "testing"
-        comment: "✅ TESTED: All Pydantic validations working correctly. Age validation (0-150), name validation (min 2 chars), complaint validation (min 5 chars), and enum validations all pass. Data model includes all required fields with proper types."
+        comment: "Migrated from Python FastAPI to Node.js + Express.js backend. Updated MongoDB credentials to use dental_db database. Added uuid dependency. Updated supervisor configuration to run Node.js server."
         
-  - task: "POST /api/appointments endpoint"
+  - task: "POST /api/appointments endpoint (Node.js)"
     implemented: true
-    working: true
-    file: "/app/backend/server.py"
+    working: "needs_testing"
+    file: "/app/backend/server.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "Created create_appointment endpoint with slot validation, duplicate booking prevention, and Saturday/Sunday restrictions logic."
-      - working: true
-        agent: "testing"
-        comment: "✅ TESTED: Endpoint working perfectly. Fixed minor date serialization issue for MongoDB. All validation scenarios pass: valid appointments, duplicate slot prevention, age/name/complaint validation, and day restrictions."
+        comment: "Ported create_appointment endpoint with slot validation, duplicate booking prevention, and Saturday/Sunday restrictions logic from Python to Node.js."
         
-  - task: "GET /api/appointments endpoint"
+  - task: "GET /api/appointments endpoint (Node.js)"
     implemented: true
-    working: true
-    file: "/app/backend/server.py"
+    working: "needs_testing"
+    file: "/app/backend/server.js"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "Created get_appointments endpoint to retrieve all appointments sorted by date."
-      - working: true
-        agent: "testing"
-        comment: "✅ TESTED: Endpoint returns proper JSON array with all appointment data. All required fields present (id, name, sex, age, complaint, time_slot, appointment_date, created_at, status). Sorting by date works correctly."
+        comment: "Ported get_appointments endpoint to retrieve all appointments sorted by date using Mongoose."
         
-  - task: "GET /api/appointments/available-slots endpoint"
+  - task: "GET /api/appointments/available-slots endpoint (Node.js)"
     implemented: true
-    working: true
-    file: "/app/backend/server.py"
+    working: "needs_testing"
+    file: "/app/backend/server.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "Created endpoint to fetch available slots for a specific date, handles Saturday/Sunday restrictions and shows already booked slots."
-      - working: true
-        agent: "testing"
-        comment: "✅ TESTED: Endpoint working perfectly. Weekdays show 6 slots (minus booked), Saturdays show 4 morning slots only, Sundays show 0 slots. Correctly excludes already booked slots from available list."
+        comment: "Ported endpoint to fetch available slots for a specific date, handles Saturday/Sunday restrictions and shows already booked slots."
         
-  - task: "Saturday/Sunday booking restrictions"
+  - task: "Saturday/Sunday booking restrictions (Node.js)"
     implemented: true
-    working: true
-    file: "/app/backend/server.py"
+    working: "needs_testing"
+    file: "/app/backend/server.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "Added validate_appointment_slot function that prevents Sunday bookings and restricts Saturday bookings to morning slots only (until 1 PM)."
-      - working: true
-        agent: "testing"
-        comment: "✅ TESTED: All day restrictions working correctly. Sunday appointments properly rejected with 400 status. Saturday afternoon slots (2-3 PM, 3-4 PM) properly rejected. Saturday morning slots (9-10 AM, 10-11 AM, 11-12 PM, 12-1 PM) work correctly. Past date validation also working."
+        comment: "Ported validate_appointment_slot function that prevents Sunday bookings and restricts Saturday bookings to morning slots only (until 1 PM)."
 
 frontend:
   - task: "Appointment booking form with all required fields"
