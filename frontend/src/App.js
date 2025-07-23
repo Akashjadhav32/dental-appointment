@@ -258,15 +258,15 @@ const AppointmentForm = () => {
                 value={formData.time_slot}
                 onChange={handleInputChange}
                 disabled={!formData.appointment_date}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white ${
                   errors.time_slot ? 'border-red-500' : 'border-gray-300'
-                } ${!formData.appointment_date ? 'bg-gray-100' : ''}`}
+                } ${!formData.appointment_date ? 'bg-gray-100 text-gray-600' : ''}`}
               >
-                <option value="">
+                <option value="" className="text-gray-500">
                   {!formData.appointment_date ? 'Select date first' : 'Select time slot'}
                 </option>
                 {availableSlots.map(slot => (
-                  <option key={slot} value={slot}>
+                  <option key={slot} value={slot} className="text-gray-900">
                     {slot}
                   </option>
                 ))}
