@@ -110,8 +110,12 @@ const AppointmentForm = () => {
     
     try {
       const response = await axios.post(`${API}/appointments`, {
-        ...formData,
-        age: parseInt(formData.age)
+        name: formData.name,
+        sex: formData.sex,
+        age: parseInt(formData.age),
+        complaint: formData.complaint,
+        timeSlot: formData.time_slot,
+        appointmentDate: formData.appointment_date
       });
       
       setSubmitMessage('✅ Appointment booked successfully! You will receive a confirmation shortly.');
