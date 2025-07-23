@@ -80,8 +80,8 @@ def test_create_appointment_valid():
             "sex": "Male",
             "age": 30,
             "complaint": "Regular dental checkup and cleaning",
-            "time_slot": "9:00–10:00 AM",
-            "appointment_date": tomorrow.isoformat()
+            "timeSlot": "9:00–10:00 AM",
+            "appointmentDate": tomorrow.isoformat()
         }
         
         response = requests.post(f"{BASE_URL}/api/appointments", json=appointment_data)
