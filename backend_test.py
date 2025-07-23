@@ -145,8 +145,8 @@ def test_saturday_afternoon_slot():
             "sex": "Male",
             "age": 35,
             "complaint": "Dental crown replacement needed",
-            "time_slot": "2:00–3:00 PM",
-            "appointment_date": saturday.isoformat()
+            "timeSlot": "2:00–3:00 PM",
+            "appointmentDate": saturday.isoformat()
         }
         
         response = requests.post(f"{BASE_URL}/api/appointments", json=appointment_data)
