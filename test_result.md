@@ -122,15 +122,18 @@ backend:
         
   - task: "POST /api/appointments endpoint (Node.js)"
     implemented: true
-    working: "needs_testing"
+    working: true
     file: "/app/backend/server.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Ported create_appointment endpoint with slot validation, duplicate booking prevention, and Saturday/Sunday restrictions logic from Python to Node.js."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: POST /api/appointments endpoint working perfectly. Successfully creates appointments with valid data (returns 200 with appointment ID). Comprehensive validation working: rejects negative age (-5), age over 150 (200), short names (1 char), short complaints (<5 chars) - all return 400 status. Duplicate booking prevention working - second booking for same slot returns 400. All validation rules implemented correctly with express-validator."
         
   - task: "GET /api/appointments endpoint (Node.js)"
     implemented: true
