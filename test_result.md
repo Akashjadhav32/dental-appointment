@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Create a full-stack appointment booking system for a dental clinic with React frontend, FastAPI backend, and MongoDB database. Include form validation, Saturday/Sunday restrictions, and OPD consultation note."
+user_problem_statement: "Create a full-stack appointment booking system for a dental clinic with React frontend, FastAPI backend, and MongoDB database. Include form validation, Saturday/Sunday restrictions, and OPD consultation note. MIGRATION UPDATE: Convert to Node.js + Express backend only (remove Python files) and React frontend to TypeScript + Vite."
 
 backend:
   - task: "Node.js backend migration with MongoDB connection"
