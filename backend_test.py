@@ -325,16 +325,16 @@ def test_invalid_name_too_short():
             "sex": "Male",
             "age": 30,
             "complaint": "Testing short name validation",
-            "time_slot": "9:00–10:00 AM",
-            "appointment_date": tomorrow.isoformat()
+            "timeSlot": "9:00–10:00 AM",
+            "appointmentDate": tomorrow.isoformat()
         }
         
         response = requests.post(f"{BASE_URL}/api/appointments", json=appointment_data)
-        if response.status_code == 422:  # Pydantic validation error
+        if response.status_code == 400:  # Express validation error
             log_test("Invalid Name (Too Short) Rejection", True, "Correctly rejected short name")
             return True
         else:
-            log_test("Invalid Name (Too Short) Rejection", False, f"Expected 422, got {response.status_code}")
+            log_test("Invalid Name (Too Short) Rejection", False, f"Expected 400, got {response.status_code}")
             return False
     except Exception as e:
         log_test("Invalid Name (Too Short) Rejection", False, f"Exception: {str(e)}")
