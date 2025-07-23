@@ -298,16 +298,16 @@ def test_invalid_age_over_150():
             "sex": "Female",
             "age": 200,
             "complaint": "Testing age over 150 validation",
-            "time_slot": "9:00–10:00 AM",
-            "appointment_date": tomorrow.isoformat()
+            "timeSlot": "9:00–10:00 AM",
+            "appointmentDate": tomorrow.isoformat()
         }
         
         response = requests.post(f"{BASE_URL}/api/appointments", json=appointment_data)
-        if response.status_code == 422:  # Pydantic validation error
+        if response.status_code == 400:  # Express validation error
             log_test("Invalid Age (Over 150) Rejection", True, "Correctly rejected age over 150")
             return True
         else:
-            log_test("Invalid Age (Over 150) Rejection", False, f"Expected 422, got {response.status_code}")
+            log_test("Invalid Age (Over 150) Rejection", False, f"Expected 400, got {response.status_code}")
             return False
     except Exception as e:
         log_test("Invalid Age (Over 150) Rejection", False, f"Exception: {str(e)}")
