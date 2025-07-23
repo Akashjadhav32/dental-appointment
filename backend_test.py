@@ -20,7 +20,7 @@ BACKEND_URL = "http://localhost:8001/api"
 class BackendTester:
     def __init__(self):
         self.session = requests.Session()
-        self.session.verify = False  # Disable SSL verification for testing
+        # No need for SSL verification when using localhost
         self.test_results = []
         self.appointments_created = []
         
