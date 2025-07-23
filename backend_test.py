@@ -9,6 +9,10 @@ import json
 import sys
 from datetime import datetime, timedelta
 import uuid
+import urllib3
+
+# Disable SSL warnings for testing
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Backend URL from frontend environment
 BACKEND_URL = "https://app-gld1b44i-frontend.e1-us-east-1.choreoapps.dev/api"
@@ -16,6 +20,7 @@ BACKEND_URL = "https://app-gld1b44i-frontend.e1-us-east-1.choreoapps.dev/api"
 class BackendTester:
     def __init__(self):
         self.session = requests.Session()
+        self.session.verify = False  # Disable SSL verification for testing
         self.test_results = []
         self.appointments_created = []
         
